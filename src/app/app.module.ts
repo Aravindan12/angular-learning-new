@@ -12,6 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { ProductComponent } from './product/product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 
 @NgModule({
   imports: [
@@ -34,7 +38,11 @@ HttpClientInMemoryWebApiModule.forRoot(
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    TopBarComponent,
+    ProductComponent,
+    ProductListComponent,
+    ProductAlertsComponent
   ],
   bootstrap: [ AppComponent ]
 })
