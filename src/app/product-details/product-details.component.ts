@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../products';
 import { MessageService } from '../message.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,8 @@ import { MessageService } from '../message.service';
 })
 export class ProductDetailsComponent {
   product: Product | undefined;
-  constructor(private route: ActivatedRoute,private messageService: MessageService) { }
+  title = 'My Store';
+  constructor(private route: ActivatedRoute,private messageService: MessageService, private cartService: CartService) { }
   ngOnInit() {
     // First get the product id from the current route.
     const routeParams = this.route.snapshot.paramMap;
@@ -20,5 +22,9 @@ export class ProductDetailsComponent {
     // Find the product that correspond with the id provided in route.
     this.product = products.find(product => product.id === productIdFromRoute);
     this.messageService.add(`product id: ${productIdFromRoute}`)
+  }
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 }
