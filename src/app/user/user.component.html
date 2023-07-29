@@ -1,0 +1,47 @@
+<h2>{{ action === 'create' ? 'Create Task' : 'Edit Task' }}</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="userForm">
+
+    <div>
+      <label for="name">
+        Name
+      </label>
+      <input id="name" type="text" formControlName="name" [(ngModel)]="user.name" class="fields">
+    </div>
+  
+    <div>
+      <label for="email">
+        Email
+      </label>
+      <input id="email" type="email" formControlName="email" [(ngModel)]="user.email" class="fields">
+    </div>
+  
+    <div>
+        <label for="password">
+          Password
+        </label>
+        <input id="password" type="password" formControlName="password" [(ngModel)]="user.password" class="fields">
+    </div>
+    <button class="button" type="submit">{{ action === 'create' ? 'Create' : 'Update' }}</button>
+  
+</form>
+<h2>User List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Action</th>
+      <!-- Add more table headers for additional user properties -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td><button (click)="edit(user.id)">edit</button></td>
+      <td><button (click)="delete(user.id)">delete</button></td>
+      <!-- Add more table cells for additional user properties -->
+    </tr>
+  </tbody>
+</table>

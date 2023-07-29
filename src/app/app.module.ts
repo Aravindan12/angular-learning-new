@@ -19,6 +19,7 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [
@@ -31,9 +32,9 @@ import { ShippingComponent } from './shipping/shipping.component';
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
 // Remove it when a real server is ready to receive requests.
-HttpClientInMemoryWebApiModule.forRoot(
-  InMemoryDataService, { dataEncapsulation: false }
-)
+// HttpClientInMemoryWebApiModule.forRoot(
+//   InMemoryDataService, { dataEncapsulation: false }
+// )
   ],
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ HttpClientInMemoryWebApiModule.forRoot(
     ProductAlertsComponent,
     ProductDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    UserComponent
   ],
   bootstrap: [ AppComponent ]
 })
