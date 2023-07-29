@@ -7,14 +7,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
   items: Product[] = [];
+  user: {name: string;
+    address: string;}[] = [];
+    
   private shipping = 'api/shipping';  // URL to web api
 
   addToCart(product: Product) {
     this.items.push(product);
   }
 
+  addUser(user: {name: string;
+    address: string;}) {
+    this.user.push(user);
+    console.log(user)
+  }
+
   getItems() {
     return this.items;
+  }
+  getUser() {
+    return this.user;
   }
 
   clearCart() {
